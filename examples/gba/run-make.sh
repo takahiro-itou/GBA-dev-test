@@ -11,4 +11,4 @@ command=make
 docker run  \
     -v ${host_localdir}:${work_dir}  \
     -w ${work_dir}   \
-    ${container}  ${command}
+    ${container}  ${command}  "$@"
