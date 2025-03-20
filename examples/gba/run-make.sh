@@ -3,9 +3,9 @@
 current_srcfile=${BASH_SOURCE:-$0}
 script_dir=$(dirname "${current_srcfile}")
 
-host_localdir=${script_dir}
+host_localdir=$(readlink -f "${script_dir}")
 work_dir=/home/$(basename "${host_localdir}")
-container==shumon84/gba
+container=shumon84/gba
 
 command=make
 docker run  \
