@@ -1,4 +1,6 @@
 
+.SUFFIXES:
+
 ##========================================================================
 ##
 ##    ツールキットの設定
@@ -27,19 +29,22 @@ data_dir        :=
 ##    コンパイルオプション
 ##
 
-ARCH        :=      -mthumb -mthumb-interwork
+ARCH        :=  -mthumb -mthumb-interwork
 
-CFLAGS      :=      -g -Wall -O3\
-                    -mcpu=arm7tdmi -mtune=arm7tdmi\
-                    -fomit-frame-pointer\
-                    -ffast-math \
-                    $(ARCH)
+CFLAGS      :=  -g -Wall -O3\
+                -mcpu=arm7tdmi -mtune=arm7tdmi\
+                -fomit-frame-pointer\
+                -ffast-math \
+                $(ARCH)
 
-CFLAGS      +=      $(INCLUDE)
-CXXFLAGS    :=      $(CFLAGS) -fno-rtti -fno-exceptions
+CFLAGS      +=  $(INCLUDE)
+CXXFLAGS    :=  $(CFLAGS) -fno-rtti -fno-exceptions
 
-ASFLAGS     :=      -g $(ARCH)
-LDFLAGS     =       -g $(ARCH) -Wl,-Map,$(notdir $*.map)
+ASFLAGS     :=  -g $(ARCH)
+LDFLAGS     =   -g $(ARCH) -Wl,-Map,$(notdir $*.map)
+
+LIBS        :=  -lmm -lgba
+LIBDIRS     :=  $(LIBGBA)
 
 
 ifneq ($(BUILDDIR), $(CURDIR))
@@ -80,9 +85,8 @@ export  LIBPATHS        :=  $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
 .PHONY: all $(build_dir) clean
 
-all     :  $(OUTPUT).gba
-
 $(build_dir):
+	echo $(CFILES)
 	[ -d $@ ] || mkdir -p $@
 	$(MAKE) BUILDDIR=`cd $(build_dir) && pwd` -C $(build_dir) -f $(CURDIR)/Makefile
 
