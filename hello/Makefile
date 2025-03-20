@@ -86,13 +86,12 @@ export  LIBPATHS        :=  $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 .PHONY: all $(build_dir) clean
 
 $(build_dir):
-	echo $(CFILES)
 	[ -d $@ ] || mkdir -p $@
 	$(MAKE) BUILDDIR=`cd $(build_dir) && pwd` -C $(build_dir) -f $(CURDIR)/Makefile
 
 clean   :
 	@echo clean ...
-	rm -rf $(BUILD) $(target).elf $(target).gba
+	rm -rf $(build_dir) $(target).elf $(target).gba
 
 else
 
