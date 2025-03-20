@@ -56,7 +56,7 @@ ifneq ($(BUILDDIR), $(CURDIR))
 
 export  OUTPUT      :=  $(CURDIR)/$(target)
 
-export  VPATH       :=  $(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
+export  VPATH       :=  $(foreach dir,$(sources_dir),$(CURDIR)/$(dir)) \
                         $(foreach dir,$(DATA),$(CURDIR)/$(dir)) \
                         $(foreach dir,$(GRAPHICS),$(CURDIR)/$(dir))
 
