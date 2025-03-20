@@ -92,7 +92,7 @@ $(build_dir):
 
 clean   :
 	@echo clean ...
-	rm -rf $(BUILD) $(TARGET).elf $(TARGET).gba
+	rm -rf $(BUILD) $(target).elf $(target).gba
 
 else
 
