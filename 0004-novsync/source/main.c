@@ -26,6 +26,5 @@ int main()
         x %= 238;
         drawLine(x + 0, 0x001f);
         drawLine(x + 1, 0x001f);
-        waitVsync();
     }
 }
