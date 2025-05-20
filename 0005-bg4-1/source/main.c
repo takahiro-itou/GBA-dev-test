@@ -14,5 +14,8 @@ void toggleFrame()
 
 int main()
 {
+    SetMode(MODE_4 | BG2_ENABLE);
+    screen  = VRAM_FRAME_0;
+
     for (;;) { }
 }
