@@ -56,6 +56,15 @@ void waitVsync()
     toggleFrame();
 }
 
+void drawScreen()
+{
+    static  u32 i = 0;
+    for (u32 y = 0; y < 160; ++ y ) {
+        drawLine(y, (i + y) & 0xFF);
+    }
+    ++  i;
+}
+
 int main()
 {
     SetMode(MODE_4 | BG2_ENABLE);
@@ -63,5 +72,7 @@ int main()
     screen  = VRAM_FRAME_0;
 
     for (;;) {
+        drawScreen();
+        waitVsync();
     }
 }
