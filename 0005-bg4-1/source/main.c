@@ -12,6 +12,34 @@ void toggleFrame()
     screen  = (REG_DISPCNT & BACKBUFFER) ? VRAM_FRAME_0 : VRAM_FRAME_1;
 }
 
+void initPalette()
+{
+    for (u32 i = 0; i < 32; ++ i ) {
+        BG_PALETTE[i]   = RGB5(i, i, i);
+    }
+    for (u32 i = 0; i < 32; ++ i ) {
+        BG_PALETTE[i +  32] = RGB5(i, i, i);
+    }
+    for (u32 i = 0; i < 32; ++ i ) {
+        BG_PALETTE[i +  64] = RGB5(i, i, i);
+    }
+    for (u32 i = 0; i < 32; ++ i ) {
+        BG_PALETTE[i +  96] = RGB5(i, i, i);
+    }
+    for (u32 i = 0; i < 32; ++ i ) {
+        BG_PALETTE[i + 128] = RGB5(i, i, i);
+    }
+    for (u32 i = 0; i < 32; ++ i ) {
+        BG_PALETTE[i + 160] = RGB5(i, i, i);
+    }
+    for (u32 i = 0; i < 32; ++ i ) {
+        BG_PALETTE[i + 192] = RGB5(i, i, i);
+    }
+    for (u32 i = 0; i < 32; ++ i ) {
+        BG_PALETTE[i + 224] = RGB5(i, i, i);
+    }
+}
+
 int main()
 {
     SetMode(MODE_4 | BG2_ENABLE);
