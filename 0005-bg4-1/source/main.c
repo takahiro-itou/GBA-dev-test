@@ -43,6 +43,7 @@ void initPalette()
 int main()
 {
     SetMode(MODE_4 | BG2_ENABLE);
+    initPalette();
     screen  = VRAM_FRAME_0;
 
     for (;;) { }
