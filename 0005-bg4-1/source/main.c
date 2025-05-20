@@ -51,7 +51,7 @@ void initPalette()
 void drawLine(u32 y, u8 color)
 {
     u32 cv  = (color) | (color << 8) | (color << 16) | (color <<24);
-    u32 * s = (u32 *)(screen + y * color);
+    u32 * s = (u32 *)(screen + y * SCREEN_WIDTH);
     for (u32 i = 0; i < 60; ++ i ) {
         *(s ++) = cv;
     }
