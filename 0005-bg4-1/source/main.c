@@ -49,11 +49,19 @@ void drawLine(u32 y, u8 color)
     }
 }
 
+void waitVsync()
+{
+    while ( REG_VCOUNT >= 160 ) { }
+    while ( REG_VCOUNT <  160 ) { }
+    toggleFrame();
+}
+
 int main()
 {
     SetMode(MODE_4 | BG2_ENABLE);
     initPalette();
     screen  = VRAM_FRAME_0;
 
-    for (;;) { }
+    for (;;) {
+    }
 }
