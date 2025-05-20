@@ -40,6 +40,15 @@ void initPalette()
     }
 }
 
+void drawLine(u32 y, u8 color)
+{
+    u32 cv  = (color) | (color << 8) | (color << 16) | (color <<24);
+    u32 * s = (u32 *)(screen + y * color);
+    for (u32 i = 0; i < 60; ++ i ) {
+        *(s ++) = cv;
+    }
+}
+
 int main()
 {
     SetMode(MODE_4 | BG2_ENABLE);
